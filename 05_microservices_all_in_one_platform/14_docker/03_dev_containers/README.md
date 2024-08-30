@@ -36,7 +36,18 @@ docker build -f Dockerfile.dev -t my-dev-image .
 
 
 #### Running the Container and start a Bash shell:
+##### it will run the container and will take you inside the container 
 ``` docker run -it my-dev-image /bin/bash```
+
+
+#### Running the Container At the Backgroud of Terminal and start a Bash shell:
+##### If you want to leave the container running but detach from it, you should have started the container with the -d flag for detached mode.
+``` docker run -d -it my-dev-image /bin/bash```
+
+
+
+#### Exit the running container
+```exit ```
 
 
 #### Opening the command line in the container:
