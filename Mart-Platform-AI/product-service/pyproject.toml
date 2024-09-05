@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "todo"
+version = "0.1.0"
+description = ""
+authors = ["Hassan Sattar <hasansattar650@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.112.2"
+aiokafka = "^0.11.0"
+protobuf = "^5.28.0"
+uvicorn = "^0.30.6"
+sqlmodel = "^0.0.22"
+psycopg = {extras = ["binary"], version = "^3.1.18"}
+openai = "^1.43.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
