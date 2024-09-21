@@ -141,6 +141,8 @@ az ad sp create-for-rbac --name "myServicePrincipal" --role contributor --scopes
                 --env-vars 'APP_SETTING=my-setting'
     ```
 
+  ### NOTE:  In run: | az containerapp create , ==> we can also pas "update" instead of create . update work in both cases create the container app and update the container app 
+
     - Replace placeholders (e.g., `myacrregistry`, `myapp`, `myresourcegroup`, `mycontainerapp`) with your actual values, ensuring they are all in lowercase.
     - Ensure `AZURE_CREDENTIALS` is a JSON object containing `clientId`, `clientSecret`, `subscriptionId`, and `tenantId`.
 
