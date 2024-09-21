@@ -22,7 +22,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/myapp:latest .
+          docker build -f Dockerfile.dev -t ${{ secrets.DOCKER_HUB_USERNAME }}/myapp:latest .
           
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/myapp:latest
 
