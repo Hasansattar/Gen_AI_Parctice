@@ -1,0 +1,89 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "type": "ellipse",
+      "version": 150,
+      "versionNonce": 1517321445,
+      "index": "a2",
+      "isDeleted": false,
+      "id": "Tkm4pz0BJiGRAJs7MKc2Q",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "x": 514.4000244140625,
+      "y": 518.266656112671,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "width": 588.0000000000001,
+      "height": 525.60001373291,
+      "seed": 1911837221,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "boundElements": [],
+      "updated": 1725392834825,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "line",
+      "version": 44,
+      "versionNonce": 1983233701,
+      "index": "a3",
+      "isDeleted": false,
+      "id": "24SKAY1KCT-d1heckJish",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "x": 624.7999877929688,
+      "y": 691.8666698455811,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "width": 404.00006103515625,
+      "height": 0.800018310546875,
+      "seed": 1610119269,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "boundElements": [],
+      "updated": 1725392896069,
+      "link": null,
+      "locked": false,
+      "startBinding": null,
+      "endBinding": null,
+      "lastCommittedPoint": null,
+      "startArrowhead": null,
+      "endArrowhead": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          404.00006103515625,
+          -0.800018310546875
+        ]
+      ]
+    }
+  ],
+  "appState": {
+    "gridSize": 20,
+    "gridStep": 5,
+    "gridModeEnabled": false,
+    "viewBackgroundColor": "#ffffff"
+  },
+  "files": {}
+}

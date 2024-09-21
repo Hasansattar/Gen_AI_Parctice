@@ -1,7 +1,7 @@
 # main.py
 from contextlib import asynccontextmanager
 from typing import Annotated
-from sqlmodel import Session, SQLModel
+from sqlmodel import Session, SQLModel, Cookie
 from fastapi import FastAPI, Depends, HTTPException
 from typing import AsyncGenerator
 from aiokafka import AIOKafkaProducer, AIOKafkaConsumer
@@ -10,10 +10,11 @@ import json
 
 from app import settings
 from app.db_engine import engine
-from app.models.product_model import Product, ProductUpdate
+from app.models.product_model import Product, ProductUpdate ,Category
 from app.crud.product_crud import add_new_product, get_all_products, get_product_by_id, delete_product_by_id, update_product_by_id
 from app.deps import get_session, get_kafka_producer
 from app.consumers.product_consumer import consume_messages
+from app.consumers.category_consumer import consume_messages_category
 from app.consumers.inventroy_consumer import consume_inventory_messages
 from app.hello_ai import chat_completion
 
@@ -28,6 +29,10 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
 
     task = asyncio.create_task(consume_messages(
         settings.KAFKA_PRODUCT_TOPIC, 'broker:19092'))
+    task = asyncio.create_task(consume_messages_category(
+        settings.KAFKA_PRODUCT_CATEGORY_TOPIC, 'broker:19092'))
+    
+    
     asyncio.create_task(consume_inventory_messages(
         "AddStock",
         'broker:19092'
@@ -47,6 +52,20 @@ app = FastAPI(
 @app.get("/")
 def read_root():
     return {"Hello": "Product Service"}
+
+
+@app.post("/manage-products/category", response_model=Category)
+async def create_new_product_category(category: Category, session: Annotated[Session, Depends(get_session)], producer: Annotated[AIOKafkaProducer, Depends(get_kafka_producer)]):
+    """ Create a new Category product and send it to Kafka"""
+
+    category_dict = {field: getattr(category, field) for field in category.dict()}
+    category_json = json.dumps(category_dict).encode("utf-8")
+    print("category_JSON:", category_json)
+    # Produce message
+    await producer.send_and_wait(settings.KAFKA_PRODUCT_CATEGORY_TOPIC, category_json)
+    # new_product = add_new_product(product, session)
+    return category
+
 
 
 @app.post("/manage-products/", response_model=Product)

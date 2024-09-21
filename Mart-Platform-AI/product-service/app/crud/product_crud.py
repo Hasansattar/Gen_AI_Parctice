@@ -1,6 +1,6 @@
 from fastapi import HTTPException
 from sqlmodel import Session, select
-from app.models.product_model import Product, ProductUpdate
+from app.models.product_model import Product, ProductUpdate ,Category
 
 # Add a New Product to the Database
 def add_new_product(product_data: Product, session: Session):
@@ -50,3 +50,13 @@ def update_product_by_id(product_id: int, to_update_product_data:ProductUpdate, 
 def validate_product_by_id(product_id: int, session: Session) -> Product | None:
     product = session.exec(select(Product).where(Product.id == product_id)).one_or_none()
     return product
+
+
+# ========================================================================================
+
+def add_new_product_category(category_data: Category, session: Session):
+    print("Adding Category Product to Database")
+    session.add(category_data)
+    session.commit()
+    session.refresh(category_data)
+    return category_data

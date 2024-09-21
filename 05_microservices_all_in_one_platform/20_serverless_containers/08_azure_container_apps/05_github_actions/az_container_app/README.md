@@ -46,7 +46,7 @@
 
 - **Build Docker Image:**
     ```sh
-    docker build -t your-dockerhub-username/myapp:latest .
+    docker build -f Dockerfile.dev -t your-dockerhub-username/myapp:latest .
     ```
 
 - **Push Docker Image to Docker Hub:**

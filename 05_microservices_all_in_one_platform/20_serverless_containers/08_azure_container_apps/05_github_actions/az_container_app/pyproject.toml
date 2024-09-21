@@ -16,6 +16,8 @@ passlib = {extras = ["bcrypt"], version = "^1.7.4"}
 tenacity = "^8.2.3"
 pydantic = "^2.6.4"
 emails = "^0.6"
+fastapi = "^0.115.0"
+
 
 
 [build-system]
