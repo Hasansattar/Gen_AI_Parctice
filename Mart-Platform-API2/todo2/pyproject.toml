@@ -13,6 +13,7 @@ protobuf = "^5.28.0"
 uvicorn = "^0.30.6"
 sqlmodel = "^0.0.22"
 psycopg = {extras = ["binary"], version = "^3.1.18"}
+uuid = "^1.30"
 
 
 [build-system]
