@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+// Message representing an image.
+message Image {
+    int32 id = 1; // Unique identifier for the image
+    repeated string image_url = 2; // List of URLs for the image.
+    int32 product_id = 3; // Foreign key to the associated product
+}
+
+// Message for creating a new image.
+message ImageCreate {
+    int32 id = 1;
+    repeated string image_url = 2; // List of URLs for the image.
+    int32 product_id = 3; // Foreign key to the associated product
+}
+
+// Message for updating an existing image.
+message ImageUpdate {
+    int32 id = 1; // Unique identifier for the image
+    repeated string image_url = 2; // List of URLs for the image.
+    int32 product_id = 3; // Foreign key to the associated product (optional)
+}
+
+// Message for listing images.
+message ImageList {
+    repeated Image images = 1; // List of URLs for the image. Image images = 1; // List of images
+}
+
+// Message for deleting an image.
+message ImageDelete {
+    int32 id = 1; // Unique identifier for the image to delete
+}

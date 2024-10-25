@@ -211,6 +211,7 @@ This project aims to create a robust, scalable, and efficient online mart API us
 **2. http://localhost:8004/docs**
 
 
+### First we need to app category and images of product after then we can add product , bacause they both have backpopulate and product have foreign key of both api
 
 
 

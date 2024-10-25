@@ -466,11 +466,11 @@ class TodoUpdate(TodoBase):
 
 # Prototype Methods
 
-1- we have already proto compiler into running container.
-2- go inside the container : docker exec -it <container-name> /bin/bash
-3- go to todo.proto file
-4- Run this command check version: ``protoc --version``
-4- Run this command for compile the file: `protoc --python_out=. todo.proto`
+##### 1- we have already proto compiler into running container.
+##### 2- go inside the container : docker exec -it container-name /bin/bash
+##### 3- go to todo.proto file
+##### 4- Run this command check version: ``protoc --version``
+##### 5- Run this command for compile the file: `protoc --python_out=. todo.proto`
 
 
 

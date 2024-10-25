@@ -4,9 +4,6 @@ i am working on fast api sqlmodel and kakfa
 
 i am developing a project event driven architecture microservices
 
-I am first developing product service:Suggest
-1. All features
-2. Database Schema
 
 
 Microservices:
@@ -17,3 +14,7 @@ Order Service: Handles order creation, updating, and tracking.
 Inventory Service: Manages stock levels and inventory updates.
 Notification Service: Sends notifications (email, SMS) to users about order statuses and other updates.
 Payment Service: Processes payments and manages transaction records.
+
+I am first developing product service:Suggest
+1. All features
+2. Database Schema

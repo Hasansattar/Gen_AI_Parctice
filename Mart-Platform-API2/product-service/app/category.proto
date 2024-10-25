@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+// package app.models.product_model.product;
+
+// Message representing a category.
+message Category {
+    int32 id = 1; // Unique identifier for the category
+    string name = 2; // Name of the category
+    string description = 3; // Description of the category
+    //repeated Product products = 4; // List of products associated with the category
+  }
+
+// Message for creating a new category.
+message CategoryCreate {
+    int32 id = 1; // Name of the category
+    string name = 2; // Description of the category
+    string description = 3; // Optional field for the category description
+    // repeated Product products = 4; // List of products associated with the category
+  }
+
+// Message for updating an existing category.
+message CategoryUpdate {
+    int32 id = 1; // Unique identifier for the category
+    string name = 2; // Name of the category (optional)
+    string description = 3; // Description of the category (optional)
+}
+
+// Message for listing categories.
+message CategoryList {
+    repeated Category categories = 1; // List of categories
+}
+
+// Message for deleting a category.
+message CategoryDelete {
+    int32 id = 1; // Unique identifier for the category to delete
+}
