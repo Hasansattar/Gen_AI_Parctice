@@ -1,0 +1,152 @@
+syntax = "proto3";
+
+// ===========================ORDER =========================
+message Order {
+  int32 id = 1;
+  int32 user_id = 2;
+  string status = 3; // Order status: pending, confirmed, etc.
+  float total_amount = 4; // Total cost
+  string payment_status = 5; // Payment status: unpaid, paid, failed
+  string shipping_address = 6;
+  string order_date = 7; // ISO 8601 format for datetime
+  repeated OrderItem items = 8; // Link to OrderItem
+  repeated Payment payments = 9; // Link to Payment
+  repeated OrderStatusHistory status_history = 10; // Link to OrderStatusHistory
+}
+
+message OrderCreate {
+  int32 id = 1;
+  int32 user_id = 2;
+  string status = 3; // Order status: pending, confirmed, etc.
+  float total_amount = 4; // Total cost
+  string payment_status = 5; // Payment status: unpaid, paid, failed
+  string shipping_address = 6;
+  string order_date = 7; // ISO 8601 format for datetime
+  
+}
+
+message OrderUpdate {
+  int32 id = 1;
+  string status = 2;
+  string payment_status = 3;
+  string shipping_address = 4;
+}
+
+message OrderDelete {
+  int32 id = 1;
+}
+
+
+// =============================ORDER ITEMS =============================
+message OrderItem {
+  int32 id = 1;
+  int32 product_id = 2; // Link to Product ID
+  int32 quantity = 3; // Quantity ordered
+  float price_per_unit = 4; // Unit price
+  float total_price = 5; // Calculated total
+  int32 order_id = 6; // Link to Order
+}
+
+message OrderItemCreate {
+  int32 id = 1;
+  int32 product_id = 2; // Link to Product ID
+  int32 quantity = 3; // Quantity ordered
+  float price_per_unit = 4; // Unit price
+  float total_price = 5; // Calculated total
+  int32 order_id = 6; // Link to Order
+}
+
+message OrderItemUpdate {
+  int32 id = 1;
+  int32 quantity = 2;
+  float price_per_unit = 3;
+  float total_price = 4;
+}
+
+
+message OrderItemDelete {
+  int32 id = 1;
+}
+
+
+
+// =================================PAYMENT =================================
+message Payment {
+  int32 id = 1;
+  float amount = 2;
+  string payment_method = 3; // Payment method
+  string status = 4; // Payment status
+  string transaction_id = 5; // External transaction ID
+  int32 order_id = 6; // Link to Order
+}
+
+message PaymentCreate {
+  int32 id = 1;
+  float amount = 2;
+  string payment_method = 3; // Payment method
+  string status = 4; // Payment status
+  string transaction_id = 5; // External transaction ID
+  int32 order_id = 6; // Link to Order
+}
+
+message PaymentUpdate {
+  int32 id = 1;
+  string status = 2;
+  string transaction_id = 3;
+}
+
+
+// ====================================HISTORY ORDEERS =================================
+
+message OrderStatusHistory {
+  int32 id = 1;
+  string status = 2; // Order status at this point in time
+  string timestamp = 3; // ISO 8601 format for datetime
+  int32 order_id = 4; // Link to Order
+}
+
+message OrderStatusHistoryCreate {
+  int32 id = 1;
+  string status = 2; // Order status at this point in time
+  string timestamp = 3; // ISO 8601 format for datetime
+  int32 order_id = 4; // Link to Order
+}
+
+message OrderEvent {
+  enum EventType {
+    CREATED = 0;
+    UPDATED = 1;
+    DELETED = 2;
+  }
+
+  int32 order_id = 1;
+  EventType event_type = 2;
+  string event_payload = 3; // JSON-encoded order data
+}
+
+
+
+message OrderList {
+  repeated Order orders = 1;
+}
+
+
+message OrderItemList {
+  repeated OrderItem ordersitem = 1;
+}
+
+
+message PaymentList {
+  repeated Payment payments = 1;
+}
+
+
+message OrderStatusHistoryList {
+  repeated OrderStatusHistory histroy = 1;
+}
+
+
+
+
+
+

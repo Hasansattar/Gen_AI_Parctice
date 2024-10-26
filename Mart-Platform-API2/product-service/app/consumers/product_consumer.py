@@ -176,7 +176,7 @@ async def consume_message_delete_product(topic, bootstrap_servers):
     await consumer.start()
     try:
         async for message in consumer:
-            print(f"Received message on topic {message.topic}")
+            print(f"Received message on topic: {message.topic}")
 
             # Deserialize the message
             product_delete = product_pb2.ProductDelete()
