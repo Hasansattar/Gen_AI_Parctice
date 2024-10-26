@@ -9,25 +9,91 @@ product-service/
 │   ├── main.py
 │   ├── models/
 │   │   ├── __init__.py
-│   │   └── product_model.py
+│   │   └── order_model.py
 │   ├── db_engine.py
 │   ├── settings.py
 │   └── consumers/
 │   │   ├── __init__.py
-│   │   └── category_consumer.py
-│   │   └── product_consumer.py
+│   │   └── order_consumer.py
+│   │   └── order_item_consumer.py
+│   │   └── order_status_history_consumer.py
+│   │   └── payment_consumer.py
 │   └── producers/
 │   │   ├── __init__.py
-│   │   └── product_producer.py
-│   ├── product_pb2.py
-│   ├── category_pb2.py
-│   ├── image_pb2.py
+│   │   └── order_producer.py
+│   ├── order_pb2.py
 └── pyproject.toml
 
 ```
 
 
-#### Model creation
+# Order Service API
+
+Welcome to the Order Service API! This API allows you to manage orders, order items, and payments efficiently using FastAPI. It integrates with Kafka for messaging and uses SQLModel for database interactions.
+
+## Features
+
+- **Order Management**: Create, update, retrieve, and list orders.
+- **Order Item Management**: Add, update, retrieve, and list items associated with orders.
+- **Payment Management**: Handle payments related to orders.
+- **Order Status History**: Keep track of order status changes.
+
+## Technologies Used
+
+- **FastAPI**: Web framework for building APIs.
+- **SQLModel**: ORM for database interactions.
+- **Kafka**: Messaging system for asynchronous communication.
+- **Python**: Programming language for backend development.
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.8 or higher
+- Kafka broker running on `broker:19092`
+- Required Python packages (see `requirements.txt`)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/order-service-api.git
+   cd order-service-api
+
+
+
+# API Endpoints
+
+### Orders
+
+- **Create Order: `POST /orders/`**
+- **List Orders: `GET /orders/`**
+- **Get Order: `GET /orders/{order_id}`**
+- **Update Order: `PUT /orders/{order_id}`**
+- **Delete Order: `DELETE /orders/{order_id}` (Not implemented)**
+
+### Order Items
+
+- **Create Order Item: `POST /order-items/`**
+- **List Order Items: `GET /order-items/`**
+- **Get Order Item: `GET /order-items/{order_item_id}`**
+- **Update Order Item: `PUT /order-items/{order_item_id}`**
+- **Delete Order Item: `DELETE /order-items/{order_item_id}` (Not implemented)**
+
+### Payments
+
+- **Create Payment: `POST /payments/`**
+- **List Payments: `GET /payments/`**
+- **Get Payment: `GET /payments/{payment_id}`**
+
+### Order Status History
+
+- **Add Order Status: `POST /order-status-history/`**
+- **List Order Status History: `GET /order-status-history/`**
+
+
+### Model creation
 
 - **1. Order**: Manages general order details, with status and payment status fields to track the lifecycle.
 - **2. OrderItem**: Each item in the order, linked to a product and with details like quantity and per-unit price.
