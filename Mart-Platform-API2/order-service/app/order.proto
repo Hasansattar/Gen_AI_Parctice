@@ -22,6 +22,9 @@ message OrderCreate {
   string payment_status = 5; // Payment status: unpaid, paid, failed
   string shipping_address = 6;
   string order_date = 7; // ISO 8601 format for datetime
+  repeated OrderItem items = 8; // Link to OrderItem
+  repeated Payment payments = 9; // Link to Payment
+  repeated OrderStatusHistory status_history = 10; // Link to OrderStatusHistory
   
 }
 
